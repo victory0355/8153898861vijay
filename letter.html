@@ -1,0 +1,505 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Whispering Hearts - A Royal Love Confession</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ffe6ea 0%, #ffb6c1 50%, #d8a0b0 100%);
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Times New Roman', serif;
+            position: relative;
+        }
+        
+        .title {
+            text-align: center;
+            margin-top: 20px;
+            color: #870037;
+            font-size: 2.5rem;
+            font-family: 'Times New Roman', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #8b4513;
+            font-size: 1.2rem;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .bokeh {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .bokeh span {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px 5px rgba(255, 192, 203, 0.3);
+            animation: bokeh-float 15s infinite ease-in-out;
+        }
+        
+        @keyframes bokeh-float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-20px) translateX(10px);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.7;
+            }
+        }
+        
+        .heart-container {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            z-index: 2;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, filter 0.3s ease;
+            animation: float 10s infinite ease-in-out;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23e2264d' d='M256 448l-30.164-27.211C118.718 322.442 48 258.61 48 179.095 48 114.221 97.918 64 162.4 64c36.399 0 70.717 16.742 93.6 43.947C278.882 80.742 313.199 64 349.6 64 414.082 64 464 114.221 464 179.095c0 79.516-70.719 143.348-177.836 241.694L256 448z'/%3E%3C/svg%3E");
+            filter: drop-shadow(0 0 5px rgba(255, 20, 147, 0.8));
+        }
+        
+        .floating-heart:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 8px rgba(255, 20, 147, 1));
+            z-index: 10;
+        }
+        
+        .message {
+            opacity: 0;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #ff69b4;
+            border-radius: 15px;
+            padding: 10px;
+            width: 150px;
+            font-size: 14px;
+            color: #8b0042;
+            text-shadow: none;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 20;
+            font-family: 'Brush Script MT', cursive;
+        }
+        
+        .floating-heart:hover .message {
+            opacity: 1;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            50% {
+                transform: translateY(0) rotate(0deg);
+            }
+            75% {
+                transform: translateY(20px) rotate(-5deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+        
+        .central-heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23e61e50' d='M256 448l-30.164-27.211C118.718 322.442 48 258.61 48 179.095 48 114.221 97.918 64 162.4 64c36.399 0 70.717 16.742 93.6 43.947C278.882 80.742 313.199 64 349.6 64 414.082 64 464 114.221 464 179.095c0 79.516-70.719 143.348-177.836 241.694L256 448z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            z-index: 3;
+            animation: pulse 2s infinite;
+            filter: drop-shadow(0 0 10px rgba(220, 20, 60, 0.8));
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                filter: drop-shadow(0 0 10px rgba(220, 20, 60, 0.8));
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+                filter: drop-shadow(0 0 15px rgba(220, 20, 60, 1));
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                filter: drop-shadow(0 0 10px rgba(220, 20, 60, 0.8));
+            }
+        }
+        
+        .central-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 3px solid #ff1493;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Brush Script MT', cursive;
+            color: #8b0042;
+            font-size: 20px;
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
+            opacity: 0;
+            z-index: 20;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+        
+        .central-message.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .crown {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath fill='%23ffd700' d='M576 136c0 22.09-17.91 40-40 40-.248 0-.4551-.1266-.7031-.1305l-50.52 277.9C482 468.9 468.8 480 453.3 480H122.7c-15.46 0-28.72-11.06-31.48-26.27L40.71 175.9C40.46 175.9 40.25 176 39.1 176c-22.09 0-40-17.91-40-40s17.91-39.1 39.1-39.1c21.09 0 39.1 17.3 39.1 38.13l116.6 44.45L271.1 32c0-17.67 14.33-32 31.1-32s32 14.33 32 32l75.24 147.6l116.6-44.46C527.8 113.3 544 96 567.9 96C567.9 96 576 113.9 576 136z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 4;
+        }
+        
+        .kiss-button {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #ff0066 0%, #ff3385 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            font-family: 'Times New Roman', serif;
+            box-shadow: 0 5px 15px rgba(255, 0, 102, 0.4);
+            transition: all 0.3s;
+            z-index: 5;
+        }
+        
+        .kiss-button:hover {
+            transform: translateX(-50%) translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 0, 102, 0.6);
+        }
+        
+        .audio-control {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 5;
+        }
+        
+        .audio-control:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .kiss-effect {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23ff3385' d='M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 30;
+        }
+        
+        .falling-heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23ff3385' d='M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 25;
+            opacity: 0;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(90deg);
+                opacity: 0;
+            }
+        }
+        
+        .women-day-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 4;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='%23ff69b4' stroke='%23ffffff' stroke-width='5'/%3E%3Ctext x='100' y='70' font-family='Arial' font-size='14' text-anchor='middle' fill='white'%3EHappy%3C/text%3E%3Ctext x='100' y='100' font-family='Arial' font-size='14' font-weight='bold' text-anchor='middle' fill='white'%3EWomen's%3C/text%3E%3Ctext x='100' y='130' font-family='Arial' font-size='14' font-weight='bold' text-anchor='middle' fill='white'%3EDay%3C/text%3E%3Ctext x='100' y='160' font-family='Arial' font-size='14' text-anchor='middle' fill='white'%3E♀%3C/text%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Click each heart , Madam jii</h1>
+    <h2 class="subtitle">A Royal Declaration for My Queen</h2>
+    
+    <div class="Birthday-day-badge"></div>
+    
+    <div class="bokeh" id="bokeh"><span style="width: 22.9325px; height: 22.9325px; left: 63.3252%; top: 17.624%; animation-delay: 0.468651s;"></span><span style="width: 19.5647px; height: 19.5647px; left: 9.11687%; top: 12.087%; animation-delay: 2.14499s;"></span><span style="width: 8.75704px; height: 8.75704px; left: 85.862%; top: 99.0802%; animation-delay: 9.1963s;"></span><span style="width: 24.9112px; height: 24.9112px; left: 72.132%; top: 75.3179%; animation-delay: 11.1624s;"></span><span style="width: 15.5962px; height: 15.5962px; left: 82.1676%; top: 33.7434%; animation-delay: 11.8667s;"></span><span style="width: 6.27062px; height: 6.27062px; left: 89.8083%; top: 27.9635%; animation-delay: 0.287636s;"></span><span style="width: 16.3722px; height: 16.3722px; left: 77.7631%; top: 78.2393%; animation-delay: 11.0125s;"></span><span style="width: 5.73977px; height: 5.73977px; left: 74.7827%; top: 58.0193%; animation-delay: 5.06255s;"></span><span style="width: 17.3629px; height: 17.3629px; left: 43.5945%; top: 73.45%; animation-delay: 6.3704s;"></span><span style="width: 20.8808px; height: 20.8808px; left: 40.6667%; top: 27.5514%; animation-delay: 14.995s;"></span><span style="width: 17.77px; height: 17.77px; left: 55.9867%; top: 8.50073%; animation-delay: 8.70259s;"></span><span style="width: 18.8169px; height: 18.8169px; left: 28.7062%; top: 27.5436%; animation-delay: 3.38268s;"></span><span style="width: 15.1648px; height: 15.1648px; left: 89.7277%; top: 83.7263%; animation-delay: 1.52475s;"></span><span style="width: 20.0617px; height: 20.0617px; left: 32.036%; top: 43.1216%; animation-delay: 12.9203s;"></span><span style="width: 24.6182px; height: 24.6182px; left: 36.109%; top: 63.3102%; animation-delay: 4.01755s;"></span><span style="width: 11.825px; height: 11.825px; left: 15.1607%; top: 42.1834%; animation-delay: 4.69033s;"></span><span style="width: 8.16891px; height: 8.16891px; left: 94.5036%; top: 7.5854%; animation-delay: 12.5394s;"></span><span style="width: 12.8842px; height: 12.8842px; left: 21.8659%; top: 58.5934%; animation-delay: 5.96977s;"></span><span style="width: 13.0077px; height: 13.0077px; left: 92.095%; top: 55.8027%; animation-delay: 4.18522s;"></span><span style="width: 22.1611px; height: 22.1611px; left: 62.8697%; top: 57.1342%; animation-delay: 10.0863s;"></span><span style="width: 8.28209px; height: 8.28209px; left: 39.1164%; top: 66.0249%; animation-delay: 2.53961s;"></span><span style="width: 11.6637px; height: 11.6637px; left: 44.8388%; top: 76.4911%; animation-delay: 6.23815s;"></span><span style="width: 8.84032px; height: 8.84032px; left: 21.3568%; top: 96.7674%; animation-delay: 14.8639s;"></span><span style="width: 23.4983px; height: 23.4983px; left: 50.2559%; top: 70.3589%; animation-delay: 11.4971s;"></span><span style="width: 6.34299px; height: 6.34299px; left: 79.2998%; top: 40.771%; animation-delay: 6.50048s;"></span><span style="width: 13.1868px; height: 13.1868px; left: 3.86344%; top: 26.6435%; animation-delay: 11.3842s;"></span><span style="width: 23.4868px; height: 23.4868px; left: 73.3545%; top: 41.2773%; animation-delay: 4.62042s;"></span><span style="width: 19.8295px; height: 19.8295px; left: 93.1591%; top: 10.0291%; animation-delay: 3.40222s;"></span><span style="width: 22.505px; height: 22.505px; left: 51.3634%; top: 42.936%; animation-delay: 1.99877s;"></span><span style="width: 24.0692px; height: 24.0692px; left: 95.4936%; top: 12.5515%; animation-delay: 11.8702s;"></span></div>
+    
+    <div class="heart-container" id="heartContainer">
+        <!-- Hearts will be added dynamically -->
+    <div class="floating-heart" style="left: 40.7708%; top: 42.2312%; width: 87.4111px; height: 87.4111px; animation-delay: 4.13115s;"><div class="message">You are a queen in my eyes, ruling with grace and beauty.</div></div><div class="floating-heart" style="left: 75.8322%; top: 33.915%; width: 106.293px; height: 106.293px; animation-delay: 4.09145s;"><div class="message">Your royal presence illuminates my life like no other.</div></div><div class="floating-heart" style="left: 14.6202%; top: 16.3124%; width: 103.946px; height: 103.946px; animation-delay: 3.13583s;"><div class="message">Every moment with you feels like a royal celebration.</div></div><div class="floating-heart" style="left: 81.5191%; top: 23.6147%; width: 92.9461px; height: 92.9461px; animation-delay: 3.24286s;"><div class="message">Your smile is the crown jewel of my existence.</div></div><div class="floating-heart" style="left: 87.3427%; top: 18.5169%; width: 100.208px; height: 100.208px; animation-delay: 1.11055s;"><div class="message">My heart bows in reverence to your strength and beauty.</div></div><div class="floating-heart" style="left: 53.1483%; top: 54.5017%; width: 93.0482px; height: 93.0482px; animation-delay: 2.41724s;"><div class="message">You deserve to be treated like royalty every day.</div></div><div class="floating-heart" style="left: 85.9548%; top: 23.3147%; width: 85.7101px; height: 85.7101px; animation-delay: 1.7804s;"><div class="message">Your royal grace captivates me completely.</div></div><div class="floating-heart" style="left: 51.6903%; top: 36.0957%; width: 79.713px; height: 79.713px; animation-delay: 3.60879s;"><div class="message">Happy Birthday Day to You the queen of my universe!</div></div><div class="floating-heart" style="left: 81.0876%; top: 49.1999%; width: 81.5473px; height: 81.5473px; animation-delay: 2.05417s;"><div class="message">Your majesty outshines even the brightest stars.</div></div><div class="floating-heart" style="left: 67.2873%; top: 11.0953%; width: 103.218px; height: 103.218px; animation-delay: 1.10174s;"><div class="message">Your royal heart deserves endless love and devotion.</div></div></div>
+    
+    <div class="central-heart" id="centralHeart">
+        <div class="crown"></div>
+    </div>
+    
+    <div class="central-message" id="centralMessage">
+        <p>My beautiful queen, Happy Birthday mera shona,  Happy Birthday Day to You the queen of my heart!</p>
+    </div>
+    
+    <button class="kiss-button" id="kissButton">Seal It with a Kiss</button>
+    
+    <div class="audio-control" id="audioControl">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+        </svg>
+    </div>
+    
+    <audio id="backgroundMusic" loop="">
+        <source src="VIJAY4 (2).mp4" type="audio/mpeg">
+    </audio>
+    
+    <audio id="whisperSound">
+        <source src="https://cdnjs.cloudflare.com/ajax/libs/ion-sound/3.0.7/sounds/water_droplet_3.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="kissSound">
+        <source src="https://cdnjs.cloudflare.com/ajax/libs/ion-sound/3.0.7/sounds/light_bulb_breaking.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create bokeh light effects
+            const bokeh = document.getElementById('bokeh');
+            for (let i = 0; i < 30; i++) {
+                const span = document.createElement('span');
+                const size = Math.random() * 20 + 5;
+                span.style.width = `${size}px`;
+                span.style.height = `${size}px`;
+                span.style.left = `${Math.random() * 100}%`;
+                span.style.top = `${Math.random() * 100}%`;
+                span.style.animationDelay = `${Math.random() * 15}s`;
+                bokeh.appendChild(span);
+            }
+            
+            // Heart messages
+            const messages = [
+                "You are a queen in my eyes, ruling with grace and beauty.",
+                "Your royal presence illuminates my life like no other.",
+                "Every moment with you feels like a royal celebration.",
+                "Your smile is the crown jewel of my existence.",
+                "My heart bows in reverence to your strength and beauty.",
+                "You deserve to be treated like royalty every day.",
+                "Your royal grace captivates me completely.",
+                "Happy Birthday Day to you  the queen of my universe!",
+                "Your majesty outshines even the brightest stars.",
+                "Your royal heart deserves endless love and devotion."
+                
+            ];
+            
+            // Create floating hearts
+            const heartContainer = document.getElementById('heartContainer');
+            messages.forEach((message, index) => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                
+                // Random position
+                const left = 10 + Math.random() * 80;
+                const top = 10 + Math.random() * 60;
+                heart.style.left = `${left}%`;
+                heart.style.top = `${top}%`;
+                
+                // Random size
+                const size = 70 + Math.random() * 40;
+                heart.style.width = `${size}px`;
+                heart.style.height = `${size}px`;
+                
+                // Random animation delay
+                heart.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // Message bubble
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message';
+                messageDiv.textContent = messages[index];
+                heart.appendChild(messageDiv);
+                
+                // Click event for whisper
+                heart.addEventListener('click', function() {
+                    playWhisperSound();
+                    messageDiv.style.opacity = '1';
+                    setTimeout(() => {
+                        messageDiv.style.opacity = '0';
+                    }, 3000);
+                });
+                
+                heartContainer.appendChild(heart);
+            });
+            
+            // Central heart click event
+            const centralHeart = document.getElementById('centralHeart');
+            const centralMessage = document.getElementById('centralMessage');
+            centralHeart.addEventListener('click', function() {
+                centralMessage.classList.toggle('show');
+                playWhisperSound();
+            });
+            
+            // Kiss button
+            const kissButton = document.getElementById('kissButton');
+            kissButton.addEventListener('click', function() {
+                // Create kiss effect
+                const kiss = document.createElement('div');
+                kiss.className = 'kiss-effect';
+                kiss.style.left = '50%';
+                kiss.style.top = '50%';
+                kiss.style.transform = 'translate(-50%, -50%)';
+                document.body.appendChild(kiss);
+                
+                // Animate kiss
+                kiss.style.opacity = '1';
+                kiss.style.transition = 'all 0.5s';
+                setTimeout(() => {
+                    kiss.style.transform = 'translate(-50%, -50%) scale(2)';
+                    kiss.style.opacity = '0';
+                }, 100);
+                
+                // Play kiss sound
+                const kissSound = document.getElementById('kissSound');
+                kissSound.play();
+                
+                // Create falling hearts
+                createFallingHearts();
+                
+                // Wait and redirect
+                setTimeout(() => {
+                    window.location.href = "final.html";
+                }, 3000);
+            });
+            
+            // Audio controls
+            const audioControl = document.getElementById('audioControl');
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            let isMusicPlaying = false;
+            
+            audioControl.addEventListener('click', function() {
+                if (isMusicPlaying) {
+                    backgroundMusic.pause();
+                    audioControl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>';
+                } else {
+                    backgroundMusic.play();
+                    audioControl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
+                }
+                isMusicPlaying = !isMusicPlaying;
+            });
+            
+            // Utility functions
+            function playWhisperSound() {
+                const whisperSound = document.getElementById('whisperSound');
+                whisperSound.currentTime = 0;
+                whisperSound.play();
+            }
+            
+            function createFallingHearts() {
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.className = 'falling-heart';
+                        heart.style.left = `${Math.random() * 100}%`;
+                        heart.style.top = '-30px';
+                        heart.style.opacity = '1';
+                        heart.style.animation = `fall ${1 + Math.random() * 4}s linear forwards`;
+                        heart.style.animationDelay = `${Math.random() * 1}s`;
+                        document.body.appendChild(heart);
+                        
+                        // Remove after animation
+                        setTimeout(() => {
+                            heart.remove();
+                        }, 5000);
+                    }, i * 100);
+                }
+            }
+        });
+    </script>
+
+  
+</body></html>

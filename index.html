@@ -1,0 +1,299 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're My Queen | Happy Birthday Meri Shona Darling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&amp;family=Playfair+Display:wght@400;700&amp;display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Playfair Display', serif;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2e0a2e 0%, #5c0a3c 50%, #2e0a2e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            position: relative;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+            opacity: 0;
+            animation: fadeIn 3s ease forwards;
+            animation-delay: 1s;
+        }
+        
+        .crown {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+        
+        .crown svg {
+            fill: gold;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+            animation: glow 3s infinite alternate;
+        }
+        
+        .message {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            line-height: 1.4;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .enter-btn {
+            background: transparent;
+            color: gold;
+            border: 2px solid gold;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .enter-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+        
+        .enter-btn:hover {
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            transform: translateY(-3px);
+            letter-spacing: 1px;
+        }
+        
+        .enter-btn:hover:before {
+            left: 100%;
+        }
+        
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .particle, .heart {
+            position: absolute;
+            background: gold;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .heart {
+            background: transparent;
+        }
+        
+        .audio-control {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .audio-control:hover {
+            background: rgba(0, 0, 0, 0.4);
+            transform: scale(1.1);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5)); }
+            to { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.9)); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .message {
+                font-size: 1.8rem;
+            }
+            .enter-btn {
+                font-size: 1rem;
+                padding: 10px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles-container" id="particles"><div class="particle" style="width: 6.41523px; height: 6.41523px; left: 28.9752%; top: 41.065%; opacity: 0.570364; animation: 18.9079s ease-in-out 3.0953s infinite normal none running float;"></div><div class="particle" style="width: 2.95889px; height: 2.95889px; left: 20.3152%; top: 20.31%; opacity: 0.322574; animation: 20.6471s ease-in-out 1.88814s infinite normal none running float;"></div><div class="particle" style="width: 5.68093px; height: 5.68093px; left: 72.9073%; top: 19.525%; opacity: 0.577147; animation: 38.2752s ease-in-out 4.22571s infinite normal none running float;"></div><div class="particle" style="width: 4.56845px; height: 4.56845px; left: 61.2711%; top: 15.9518%; opacity: 0.752033; animation: 37.4865s ease-in-out 1.90546s infinite normal none running float;"></div><div class="particle" style="width: 6.10106px; height: 6.10106px; left: 56.9577%; top: 84.2458%; opacity: 0.354078; animation: 14.7955s ease-in-out 1.88105s infinite normal none running float;"></div><div class="particle" style="width: 4.81244px; height: 4.81244px; left: 50.3129%; top: 96.5948%; opacity: 0.666666; animation: 46.2739s ease-in-out 4.50406s infinite normal none running float;"></div><div class="particle" style="width: 5.79119px; height: 5.79119px; left: 27.4887%; top: 89.1517%; opacity: 0.44815; animation: 35.8992s ease-in-out 4.50434s infinite normal none running float;"></div><div class="particle" style="width: 2.0079px; height: 2.0079px; left: 97.2172%; top: 53.8022%; opacity: 0.382545; animation: 19.0638s ease-in-out 0.080177s infinite normal none running float;"></div><div class="particle" style="width: 2.6445px; height: 2.6445px; left: 99.3977%; top: 49.9859%; opacity: 0.370769; animation: 45.4204s ease-in-out 4.45525s infinite normal none running float;"></div><div class="particle" style="width: 5.68026px; height: 5.68026px; left: 99.3711%; top: 83.6793%; opacity: 0.788554; animation: 35.1784s ease-in-out 0.963361s infinite normal none running float;"></div><div class="particle" style="width: 2.58496px; height: 2.58496px; left: 76.0598%; top: 27.9803%; opacity: 0.717191; animation: 36.3106s ease-in-out 4.70658s infinite normal none running float;"></div><div class="particle" style="width: 5.45423px; height: 5.45423px; left: 35.4415%; top: 73.2137%; opacity: 0.423835; animation: 35.2704s ease-in-out 1.43576s infinite normal none running float;"></div><div class="particle" style="width: 4.91133px; height: 4.91133px; left: 19.9272%; top: 39.6547%; opacity: 0.567395; animation: 17.4071s ease-in-out 0.287329s infinite normal none running float;"></div><div class="particle" style="width: 6.30046px; height: 6.30046px; left: 46.8162%; top: 46.4157%; opacity: 0.447891; animation: 20.8474s ease-in-out 2.32048s infinite normal none running float;"></div><div class="particle" style="width: 3.56816px; height: 3.56816px; left: 63.2345%; top: 27.1115%; opacity: 0.552108; animation: 45.0251s ease-in-out 3.5642s infinite normal none running float;"></div><div class="particle" style="width: 3.68606px; height: 3.68606px; left: 17.631%; top: 81.9979%; opacity: 0.728271; animation: 17.8201s ease-in-out 1.72441s infinite normal none running float;"></div><div class="particle" style="width: 2.83033px; height: 2.83033px; left: 4.94492%; top: 80.7894%; opacity: 0.454717; animation: 43.6209s ease-in-out 4.46007s infinite normal none running float;"></div><div class="particle" style="width: 5.80552px; height: 5.80552px; left: 23.5176%; top: 81.6615%; opacity: 0.439771; animation: 18.0885s ease-in-out 3.84352s infinite normal none running float;"></div><div class="particle" style="width: 4.15445px; height: 4.15445px; left: 9.78053%; top: 27.419%; opacity: 0.368266; animation: 30.7296s ease-in-out 1.20994s infinite normal none running float;"></div><div class="particle" style="width: 4.2624px; height: 4.2624px; left: 30.1489%; top: 21.9414%; opacity: 0.706285; animation: 37.3233s ease-in-out 0.600124s infinite normal none running float;"></div><div class="particle" style="width: 5.45638px; height: 5.45638px; left: 0.479393%; top: 36.7694%; opacity: 0.574365; animation: 34.3916s ease-in-out 2.29827s infinite normal none running float;"></div><div class="particle" style="width: 4.5521px; height: 4.5521px; left: 41.2997%; top: 46.1735%; opacity: 0.343035; animation: 45.7402s ease-in-out 4.4493s infinite normal none running float;"></div><div class="particle" style="width: 5.39499px; height: 5.39499px; left: 87.5461%; top: 91.2778%; opacity: 0.546905; animation: 12.5038s ease-in-out 1.78548s infinite normal none running float;"></div><div class="particle" style="width: 3.85893px; height: 3.85893px; left: 26.9017%; top: 20.3454%; opacity: 0.720217; animation: 39.8594s ease-in-out 0.627273s infinite normal none running float;"></div><div class="particle" style="width: 6.89029px; height: 6.89029px; left: 92.4752%; top: 76.1664%; opacity: 0.357943; animation: 39.8123s ease-in-out 3.44088s infinite normal none running float;"></div><div class="particle" style="width: 6.75682px; height: 6.75682px; left: 8.45039%; top: 59.06%; opacity: 0.505061; animation: 47.2499s ease-in-out 3.65886s infinite normal none running float;"></div><div class="particle" style="width: 6.60468px; height: 6.60468px; left: 57.7117%; top: 14.4827%; opacity: 0.493082; animation: 24.6994s ease-in-out 3.79841s infinite normal none running float;"></div><div class="particle" style="width: 5.22409px; height: 5.22409px; left: 53.6798%; top: 18.3612%; opacity: 0.739908; animation: 45.1743s ease-in-out 0.243646s infinite normal none running float;"></div><div class="particle" style="width: 5.19202px; height: 5.19202px; left: 6.24737%; top: 22.0619%; opacity: 0.654313; animation: 18.693s ease-in-out 4.48538s infinite normal none running float;"></div><div class="particle" style="width: 4.71777px; height: 4.71777px; left: 63.8521%; top: 27.8258%; opacity: 0.328352; animation: 44.9262s ease-in-out 3.65908s infinite normal none running float;"></div><div class="particle" style="width: 2.88399px; height: 2.88399px; left: 19.2984%; top: 20.1533%; opacity: 0.633448; animation: 46.86s ease-in-out 3.5966s infinite normal none running float;"></div><div class="particle" style="width: 5.25572px; height: 5.25572px; left: 52.6438%; top: 49.968%; opacity: 0.793177; animation: 11.7856s ease-in-out 0.014793s infinite normal none running float;"></div><div class="particle" style="width: 6.48909px; height: 6.48909px; left: 5.73602%; top: 67.1123%; opacity: 0.596109; animation: 27.0988s ease-in-out 3.40514s infinite normal none running float;"></div><div class="particle" style="width: 3.40849px; height: 3.40849px; left: 91.6052%; top: 60.4021%; opacity: 0.669463; animation: 43.0669s ease-in-out 3.13913s infinite normal none running float;"></div><div class="particle" style="width: 3.6636px; height: 3.6636px; left: 35.4775%; top: 88.4483%; opacity: 0.444593; animation: 22.1732s ease-in-out 2.49319s infinite normal none running float;"></div><div class="particle" style="width: 2.37845px; height: 2.37845px; left: 66.9697%; top: 76.6032%; opacity: 0.572311; animation: 44.984s ease-in-out 2.0571s infinite normal none running float;"></div><div class="particle" style="width: 2.5467px; height: 2.5467px; left: 10.6069%; top: 86.0937%; opacity: 0.361882; animation: 10.716s ease-in-out 2.10902s infinite normal none running float;"></div><div class="particle" style="width: 2.00099px; height: 2.00099px; left: 19.6045%; top: 95.5331%; opacity: 0.466363; animation: 27.2301s ease-in-out 2.77298s infinite normal none running float;"></div><div class="particle" style="width: 2.34248px; height: 2.34248px; left: 54.8463%; top: 79.6124%; opacity: 0.486671; animation: 46.5104s ease-in-out 2.90121s infinite normal none running float;"></div><div class="particle" style="width: 2.26737px; height: 2.26737px; left: 13.0749%; top: 23.2419%; opacity: 0.591728; animation: 26.2005s ease-in-out 3.14157s infinite normal none running float;"></div><div class="particle" style="width: 6.11474px; height: 6.11474px; left: 38.0216%; top: 56.9444%; opacity: 0.491943; animation: 35.2521s ease-in-out 2.62474s infinite normal none running float;"></div><div class="particle" style="width: 6.0274px; height: 6.0274px; left: 33.6003%; top: 4.27604%; opacity: 0.313291; animation: 23.6011s ease-in-out 4.28423s infinite normal none running float;"></div><div class="particle" style="width: 6.94046px; height: 6.94046px; left: 0.0411984%; top: 16.3069%; opacity: 0.50867; animation: 48.2623s ease-in-out 4.68691s infinite normal none running float;"></div><div class="particle" style="width: 5.20646px; height: 5.20646px; left: 11.2268%; top: 40.9838%; opacity: 0.455521; animation: 33.5779s ease-in-out 0.887347s infinite normal none running float;"></div><div class="particle" style="width: 6.74459px; height: 6.74459px; left: 48.3461%; top: 7.85348%; opacity: 0.760013; animation: 37.9595s ease-in-out 0.47768s infinite normal none running float;"></div><div class="particle" style="width: 5.53918px; height: 5.53918px; left: 92.3441%; top: 75.5429%; opacity: 0.614576; animation: 45.4535s ease-in-out 3.87418s infinite normal none running float;"></div><div class="particle" style="width: 2.20979px; height: 2.20979px; left: 4.91982%; top: 69.736%; opacity: 0.324248; animation: 21.8662s ease-in-out 1.94727s infinite normal none running float;"></div><div class="particle" style="width: 3.58534px; height: 3.58534px; left: 19.9202%; top: 54.56%; opacity: 0.365374; animation: 35.5916s ease-in-out 0.419765s infinite normal none running float;"></div><div class="particle" style="width: 2.61909px; height: 2.61909px; left: 55.1499%; top: 56.2948%; opacity: 0.361226; animation: 24.4433s ease-in-out 2.08567s infinite normal none running float;"></div><div class="particle" style="width: 4.72588px; height: 4.72588px; left: 24.9546%; top: 74.5713%; opacity: 0.720869; animation: 45.493s ease-in-out 1.11841s infinite normal none running float;"></div><div class="heart" style="left: 10.856%; top: 27.9191%; animation: 33.8697s ease-in-out 4.99017s infinite normal none running float;"><svg width="21.04804906373214" height="21.04804906373214" viewBox="0 0 24 24" fill="rgba(255, 0, 102, 0.5939593226026545)" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div><div class="heart" style="left: 11.7093%; top: 2.32915%; animation: 63.8466s ease-in-out 2.64249s infinite normal none running float;"><svg width="33.616700994387344" height="33.616700994387344" viewBox="0 0 24 24" fill="rgba(255, 0, 102, 0.5711968319854988)" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div><div class="heart" style="left: 53.7904%; top: 81.3171%; animation: 78.8789s ease-in-out 8.25607s infinite normal none running float;"><svg width="26.21031152862534" height="26.21031152862534" viewBox="0 0 24 24" fill="rgba(255, 0, 102, 0.614660146366816)" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div><div class="heart" style="left: 20.6973%; top: 64.754%; animation: 88.2367s ease-in-out 3.43845s infinite normal none running float;"><svg width="29.141339530142545" height="29.141339530142545" viewBox="0 0 24 24" fill="rgba(255, 0, 102, 0.683761986674186)" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div><div class="heart" style="left: 14.0104%; top: 37.0826%; animation: 79.4193s ease-in-out 6.03805s infinite normal none running float;"><svg width="22.72808981371196" height="22.72808981371196" viewBox="0 0 24 24" fill="rgba(255, 0, 102, 0.43743880955620634)" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div><div class="heart" style="left: 66.9807%; top: 72.0234%; animation: 41.3824s ease-in-out 3.80679s infinite normal none running float;"><svg width="21.860918298581385" height="21.860918298581385" viewBox="0 0 24 24" fill="rgba(255, 0, 102, 0.3680442113259184)" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div><div class="heart" style="left: 26.5211%; top: 18.6594%; animation: 71.2721s ease-in-out 9.21121s infinite normal none running float;"><svg width="29.335409402977668" height="29.335409402977668" viewBox="0 0 24 24" fill="rgba(255, 0, 102, 0.4222447493374944)" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div><div class="heart" style="left: 35.8858%; top: 62.2931%; animation: 39.9597s ease-in-out 8.1819s infinite normal none running float;"><svg width="34.35095173968783" height="34.35095173968783" viewBox="0 0 24 24" fill="rgba(255, 0, 102, 0.2640082871100314)" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div><div class="heart" style="left: 86.5108%; top: 29.4314%; animation: 38.7318s ease-in-out 7.28094s infinite normal none running float;"><svg width="28.9639359996413" height="28.9639359996413" viewBox="0 0 24 24" fill="rgba(255, 0, 102, 0.21833013218765823)" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div><div class="heart" style="left: 62.1237%; top: 14.6804%; animation: 84.9717s ease-in-out 6.31507s infinite normal none running float;"><svg width="22.62551026992961" height="22.62551026992961" viewBox="0 0 24 24" fill="rgba(255, 0, 102, 0.6358042823153842)" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div><div class="heart" style="left: 27.9313%; top: 86.0336%; animation: 60.1971s ease-in-out 1.55525s infinite normal none running float;"><svg width="21.031022553562035" height="21.031022553562035" viewBox="0 0 24 24" fill="rgba(255, 0, 102, 0.5764549735294959)" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div><div class="heart" style="left: 81.322%; top: 84.8121%; animation: 84.326s ease-in-out 8.12178s infinite normal none running float;"><svg width="32.86391738594001" height="32.86391738594001" viewBox="0 0 24 24" fill="rgba(255, 0, 102, 0.4623311091310727)" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div><div class="heart" style="left: 41.0278%; top: 2.85694%; animation: 67.5728s ease-in-out 5.83721s infinite normal none running float;"><svg width="33.452855698157435" height="33.452855698157435" viewBox="0 0 24 24" fill="rgba(255, 0, 102, 0.21801271645794312)" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div><div class="heart" style="left: 46.7949%; top: 68.3647%; animation: 39.053s ease-in-out 6.2957s infinite normal none running float;"><svg width="22.682194691278678" height="22.682194691278678" viewBox="0 0 24 24" fill="rgba(255, 0, 102, 0.25183414300100776)" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div><div class="heart" style="left: 78.1104%; top: 21.8811%; animation: 59.3197s ease-in-out 4.04071s infinite normal none running float;"><svg width="18.94254168054895" height="18.94254168054895" viewBox="0 0 24 24" fill="rgba(255, 0, 102, 0.6676871870446088)" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></div></div>
+    
+    <div class="container">
+        <div class="crown">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path d="M309 106c11.4-7 19-19.7 19-34c0-22.1-17.9-40-40-40s-40 17.9-40 40c0 14.4 7.6 27 19 34L209.7 220.6c-9.1 18.2-32.7 23.4-48.6 10.7L72 160c5-6.7 8-15 8-24c0-22.1-17.9-40-40-40S0 113.9 0 136s17.9 40 40 40c.2 0 .5 0 .7 0L86.4 427.4c5.5 30.4 32 52.6 63 52.6H426.6c30.9 0 57.4-22.1 63-52.6L535.3 176c.2 0 .5 0 .7 0c22.1 0 40-17.9 40-40s-17.9-40-40-40s-40 17.9-40 40c0 9 3 17.3 8 24l-89.1 71.3c-15.9 12.7-39.5 7.5-48.6-10.7L309 106z"></path>
+            </svg>
+        </div>
+        
+        <h1 class="message">Happy Birthday To You ,The Queen Of My Heart...<br>You Are My Strength, My Happiness, And My Forever.<br> Love You Priyuuu Darling </h1>
+        
+        
+        <button class="enter-btn" id="enter-btn">Step into Your Kingdom</button>
+    </div>
+    
+    <div class="audio-control" id="audio-control">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="gold" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+    </div>
+    
+    <audio id="background-music" loop="">
+        <source src="vijay3.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setup particles
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            const heartCount = 15;
+            
+            // Create golden particles
+            for (let i = 0; i < particleCount; i++) {
+                createParticle();
+            }
+            
+            // Create floating hearts
+            for (let i = 0; i < heartCount; i++) {
+                createHeart();
+            }
+            
+            // Button click event
+            const enterBtn = document.getElementById('enter-btn');
+            enterBtn.addEventListener('click', function() {
+                // Transition effect
+                document.querySelector('.container').style.animation = 'fadeIn 1s ease reverse forwards';
+                
+                // Navigate to next page after animation
+                setTimeout(() => {
+                    window.location.href = "Frist.html";
+                }, 1000);
+            });
+            
+            // Audio controls
+            const audioControl = document.getElementById('audio-control');
+            const backgroundMusic = document.getElementById('background-music');
+            let isPlaying = false;
+            
+            // Audio play/pause toggle
+            audioControl.addEventListener('click', function() {
+                if (isPlaying) {
+                    backgroundMusic.pause();
+                    audioControl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="gold" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><path d="M15.54 8.46a5 5 0 0 1 0 7.07" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14" /></svg>';
+                } else {
+                    backgroundMusic.play().catch(e => console.log('Autoplay prevented: User interaction required'));
+                    audioControl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="gold" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+                }
+                isPlaying = !isPlaying;
+            });
+            
+            // First interaction with page allows music to play
+            document.body.addEventListener('click', function() {
+                if (!isPlaying) {
+                    backgroundMusic.play().catch(e => console.log('Autoplay attempted'));
+                    audioControl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="gold" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+                    isPlaying = true;
+                }
+            }, { once: true });
+            
+            // Functions to create particles and hearts
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 5 + 2;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const duration = Math.random() * 40 + 10;
+                const delay = Math.random() * 5;
+                const opacity = Math.random() * 0.5 + 0.3;
+                
+                // Apply styles
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.opacity = opacity;
+                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                
+                // Random properties
+                const size = Math.random() * 20 + 15;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const duration = Math.random() * 60 + 30;
+                const delay = Math.random() * 10;
+                const opacity = Math.random() * 0.5 + 0.2;
+                
+                // Create heart shape
+                heart.innerHTML = `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="rgba(255, 0, 102, ${opacity})" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`;
+                
+                // Apply styles
+                heart.style.left = `${posX}%`;
+                heart.style.top = `${posY}%`;
+                heart.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                
+                particlesContainer.appendChild(heart);
+            }
+        });
+    </script>
+
+</body>
+</html>

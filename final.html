@@ -1,0 +1,663 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Are My Queen Forever</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital@0;1&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+
+
+            
+            background: linear-gradient(135deg, #2c1f4a, #1a1225);
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            position: relative;
+        }
+        
+        .royal-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.2), transparent 70%);
+            z-index: 0;
+        }
+        
+        .tribute-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+            width: 90%;
+            max-width: 800px;
+        }
+        
+        .title {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            font-family: 'Dancing Script', cursive;
+            background: linear-gradient(to right, #f5d742, #f0c419, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .photo-frame {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 2rem;
+            border-radius: 10px;
+            padding: 10px;
+            background: linear-gradient(145deg, #ffd700, #f5d742);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .photo-container {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .girlfriend-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            filter: brightness(1.1);
+        }
+        
+        .crown {
+            position: absolute;
+            width: 100px;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            z-index: 10;
+            filter: drop-shadow(0 0 10px gold);
+        }
+        
+        .message {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            margin: 2rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .surprise-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(145deg, #ffd700, #f5d742);
+            color: #1a1225;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .surprise-btn:hover {
+            transform: translateY(20px) scale(1.05);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .surprise-btn:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: buttonShine 3s infinite;
+        }
+        
+        @keyframes buttonShine {
+            0% {
+                left: -50%;
+                top: -50%;
+            }
+            100% {
+                left: 150%;
+                top: 150%;
+            }
+        }
+        
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff69b4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center center;
+            background-size: contain;
+            bottom: -100px;
+            opacity: 0;
+            z-index: 1;
+        }
+        
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffd700"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>') no-repeat center center;
+            background-size: contain;
+            z-index: 1;
+            opacity: 0;
+        }
+        
+        .glow-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.5), transparent 70%);
+            opacity: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .modal-content {
+            background: linear-gradient(145deg, #2c1f4a, #1a1225);
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.5s ease;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .choice-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .choice-btn {
+            padding: 15px 25px;
+            background: linear-gradient(145deg, #ffd700, #f5d742);
+            color: #1a1225;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .choice-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .personal-note {
+            margin-top: 30px;
+        }
+        
+        .note-textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #ffd700;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            margin-top: 10px;
+            resize: none;
+            height: 100px;
+        }
+        
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .photo-frame {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .crown {
+                width: 80px;
+            }
+            
+            .message {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .photo-frame {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .crown {
+                width: 60px;
+            }
+            
+            .message {
+                font-size: 1.2rem;
+            }
+            
+            .surprise-btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+        }
+
+       
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            transform-origin: center;
+            background-color: transparent;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    
+      
+    <div class="royal-backdrop"></div>
+    
+    <div class="tribute-container">
+        <h1 class="title">You Are My Queen Forever</h1>
+        
+        <div class="photo-frame">
+            <div class="photo-container">
+                <img src="./pic1.jpg" alt="My Queen" class="girlfriend-photo">
+                <div class="glow-effect" style="opacity: 0.7; transition: opacity 1s;"></div>
+                <img class="crown" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 30' fill='%23ffd700'><path d='M25,1 L37,15 L49,5 L40,25 L10,25 L1,5 L13,15 Z' stroke='%23ffd700' stroke-width='1'/><circle cx='25' cy='10' r='3' fill='%23ff5757'/><circle cx='13' cy='15' r='2' fill='%2357b4ff'/><circle cx='37' cy='15' r='2' fill='%2360ff57'/><circle cx='49' cy='5' r='2' fill='%23ff57f1'/><circle cx='1' cy='5' r='2' fill='%23ffea57'/></svg>" alt="Crown" style="opacity: 1; transition: top 2s, opacity 1s; top: -20px;">
+            <div class="sparkle" style="width: 7.37338px; height: 7.37338px; left: -66.3821px; top: 111.209px; opacity: 0; transition: opacity 0.5s ease-in, transform 2s; transform: scale(0.8);"></div><div class="sparkle" style="width: 11.4141px; height: 11.4141px; left: 112.558px; top: 349.023px; opacity: 0; transition: opacity 0.5s ease-in, transform 2s; transform: scale(0.8);"></div><div class="sparkle" style="width: 6.38955px; height: 6.38955px; left: 291.383px; top: -10.0003px; opacity: 0; transition: opacity 0.5s ease-in, transform 2s; transform: scale(0.8);"></div><div class="sparkle" style="width: 11.1395px; height: 11.1395px; left: -32.0228px; top: 123.661px; opacity: 0; transition: opacity 0.5s ease-in, transform 2s; transform: scale(0.8);"></div><div class="sparkle" style="width: 7.79164px; height: 7.79164px; left: 123.723px; top: -89.5016px; opacity: 0; transition: opacity 0.5s ease-in, transform 2s; transform: scale(0.8);"></div><div class="sparkle" style="width: 5.61736px; height: 5.61736px; left: -48.6175px; top: 245.767px; opacity: 0; transition: opacity 0.5s ease-in, transform 2s; transform: scale(0.8);"></div><div class="sparkle" style="width: 11.1157px; height: 11.1157px; left: 263.977px; top: 354.251px; opacity: 0; transition: opacity 0.5s ease-in, transform 2s; transform: scale(0.8);"></div><div class="sparkle" style="width: 10.8097px; height: 10.8097px; left: 367.996px; top: 121.81px; opacity: 0; transition: opacity 0.5s ease-in, transform 2s; transform: scale(0.8);"></div><div class="sparkle" style="width: 6.4378px; height: 6.4378px; left: -40.1445px; top: 312.618px; opacity: 0; transition: opacity 0.5s ease-in, transform 2s; transform: scale(0.8);"></div><div class="sparkle" style="width: 11.2253px; height: 11.2253px; left: -1.73385px; top: 325.757px; opacity: 0; transition: opacity 0.5s ease-in, transform 2s; transform: scale(0.8);"></div><div class="sparkle" style="width: 6.47883px; height: 6.47883px; left: 219.284px; top: -98.4802px; opacity: 0; transition: opacity 0.5s ease-in, transform 2s; transform: scale(0.8);"></div><div class="sparkle" style="width: 5.47523px; height: 5.47523px; left: 210.044px; top: 315.234px; opacity: 0; transition: opacity 0.5s ease-in, transform 2s; transform: scale(0.8);"></div><div class="sparkle" style="width: 5.08547px; height: 5.08547px; left: 322.117px; top: 310.775px; opacity: 0; transition: opacity 0.5s ease-in, transform 2s; transform: scale(0.8);"></div><div class="sparkle" style="width: 5.01879px; height: 5.01879px; left: 64.9171px; top: -19.5122px; opacity: 0.8; transition: opacity 0.5s ease-in, transform 2s; transform: scale(1.2);"></div><div class="sparkle" style="width: 8.35258px; height: 8.35258px; left: 302.232px; top: 192.914px; opacity: 0.8; transition: opacity 0.5s ease-in, transform 2s; transform: scale(1.2);"></div><div class="sparkle" style="width: 10.8402px; height: 10.8402px; left: -32.3349px; top: 245.278px; opacity: 0.8; transition: opacity 0.5s ease-in, transform 2s; transform: scale(1.2);"></div><div class="sparkle" style="width: 8.40463px; height: 8.40463px; left: -84.7378px; top: 75.4023px; opacity: 0.8; transition: opacity 0.5s ease-in, transform 2s; transform: scale(1.2);"></div><div class="sparkle" style="width: 7.65021px; height: 7.65021px; left: -72.3465px; top: 107.841px; opacity: 0.8; transition: opacity 0.5s ease-in, transform 2s; transform: scale(1.2);"></div><div class="sparkle" style="width: 8.80002px; height: 8.80002px; left: 317.661px; top: 70.1672px; opacity: 0.8; transition: opacity 0.5s ease-in, transform 2s; transform: scale(1.2);"></div><div class="sparkle" style="width: 8.26308px; height: 8.26308px; left: 310.925px; top: 132.851px; opacity: 0.8; transition: opacity 0.5s ease-in, transform 2s; transform: scale(1.2);"></div><div class="sparkle" style="width: 5.50808px; height: 5.50808px; left: -84.6784px; top: 255.34px; opacity: 0.8; transition: opacity 0.5s ease-in, transform 2s; transform: scale(1.2);"></div><div class="sparkle" style="width: 5.34739px; height: 5.34739px; left: 377.683px; top: 87.986px; opacity: 0.8; transition: opacity 0.5s ease-in, transform 2s; transform: scale(1.2);"></div><div class="sparkle" style="width: 9.60735px; height: 9.60735px; left: 38.1695px; top: 308.5px; opacity: 0.8; transition: opacity 0.5s ease-in, transform 2s; transform: scale(1.2);"></div><div class="sparkle" style="width: 10.5372px; height: 10.5372px; left: -75.8907px; top: 86.1389px; opacity: 0.8; transition: opacity 0.5s ease-in, transform 2s; transform: scale(1.2);"></div><div class="sparkle" style="width: 10.8372px; height: 10.8372px; left: 203.058px; top: -88.3549px; opacity: 0.8; transition: opacity 0.5s ease-in, transform 2s; transform: scale(1.2);"></div><div class="sparkle" style="width: 6.64232px; height: 6.64232px; left: 315.254px; top: 188.941px; opacity: 0.8; transition: opacity 0.5s ease-in, transform 2s; transform: scale(1.2);"></div><div class="sparkle" style="width: 9.67466px; height: 9.67466px; left: -52.7882px; top: 274.2px; opacity: 0.8; transition: opacity 0.5s ease-in, transform 2s; transform: scale(1.2);"></div><div class="sparkle" style="width: 5.31056px; height: 5.31056px; left: -32.1651px; top: 205.623px; opacity: 0.8; transition: opacity 0.5s ease-in, transform 2s; transform: scale(1.2);"></div><div class="sparkle" style="width: 9.8123px; height: 9.8123px; left: 20.0858px; top: -26.0142px; opacity: 0; transition: opacity 0.5s ease-in, transform 2s;"></div><div class="sparkle" style="width: 11.887px; height: 11.887px; left: -50.1135px; top: 278.392px; opacity: 0; transition: opacity 0.5s ease-in, transform 2s;"></div></div>
+        </div>
+        
+        <p class="message" style="opacity: 1; transform: translateY(0px); transition: opacity 1s, transform 1s;"> <b> birthday to the most amazing Girl</b> ! I hope your day is filled with joy, laughter, and everything you love. May this year bring you endless happiness and unforgettable moments, and I'm so lucky to have you in my life</p>
+        
+        <button class="surprise-btn" style="opacity: 1; transform: translateY(0px); transition: opacity 1s, transform 1s;"> <b>Love You So Much Mera Bacha <b/> , Always Stay With Me</button>
+    </div>
+    
+   <!-- <div class="modal">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <h2 style="font-family: 'Dancing Script', cursive; font-size: 2.5rem; margin-bottom: 20px; background: linear-gradient(to right, #f5d742, #f0c419, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">A Special Surprise For You</h2>
+            <p style="margin-bottom: 20px;">My queen, please select your royal gift:</p>
+            
+            <div class="choice-container">
+                <button class="choice-btn" id="video-btn">Romantic Video</button>
+                <button class="choice-btn" id="voice-btn">Personal Voice Note</button>
+                <button class="choice-btn" id="gif-btn">Custom-Made GIF</button>
+            </div>
+            
+            <div class="personal-note">
+                <p>Before you go, I want to share one more thing with you:</p>
+                <textarea class="note-textarea" placeholder="Add your personal note here..."></textarea>
+            </div>
+        </div>
+    </div>/ -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Replace with actual photo
+            // You would need to replace the placeholder with your actual photo
+            // document.querySelector('.girlfriend-photo').src = 'path-to-your-photo.jpg';
+            
+            // Create hearts
+            createHearts();
+            
+            // Create sparkles
+            createSparkles();
+            
+            // Start crown animation after 2 seconds
+            setTimeout(animateCrown, 2000);
+            
+            // Setup modal and button
+            setupModal();
+        });
+        
+        function animateCrown() {
+            const crown = document.querySelector('.crown');
+            const message = document.querySelector('.message');
+            const surpriseBtn = document.querySelector('.surprise-btn');
+            const glowEffect = document.querySelector('.glow-effect');
+            
+            // Animate crown
+            crown.style.opacity = '1';
+            crown.style.transition = 'top 2s ease, opacity 1s ease';
+            crown.style.top = '-20px';
+            
+            // Show glow effect
+            setTimeout(() => {
+                glowEffect.style.opacity = '0.7';
+                glowEffect.style.transition = 'opacity 1s ease';
+                
+                // Show message
+                setTimeout(() => {
+                    message.style.opacity = '1';
+                    message.style.transform = 'translateY(0)';
+                    message.style.transition = 'opacity 1s ease, transform 1s ease';
+                    
+                    // Show button
+                    setTimeout(() => {
+                        surpriseBtn.style.opacity = '1';
+                        surpriseBtn.style.transform = 'translateY(0)';
+                        surpriseBtn.style.transition = 'opacity 1s ease, transform 1s ease';
+                    }, 1000);
+                }, 1000);
+            }, 1000);
+        }
+        
+        function createHearts() {
+            const body = document.body;
+            const width = window.innerWidth;
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                
+                const size = Math.random() * 20 + 10;
+                heart.style.width = `${size}px`;
+                heart.style.height = `${size}px`;
+                
+                // Set random horizontal position
+                const left = Math.random() * width;
+                heart.style.left = `${left}px`;
+                
+                // Append to body and animate
+                body.appendChild(heart);
+                
+                // Start animation with delay
+                setTimeout(() => {
+                    animateHeart(heart);
+                }, i * 500);
+            }
+        }
+        
+        function animateHeart(heart) {
+            // Set initial position
+            const bottom = -heart.offsetHeight;
+            heart.style.bottom = `${bottom}px`;
+            heart.style.opacity = '0';
+            
+            // Generate random parameters
+            const duration = Math.random() * 10 + 10; // 10-20s
+            const finalOpacity = Math.random() * 0.5 + 0.2; // 0.2-0.7
+            
+            // Start animation
+            heart.style.transition = `bottom ${duration}s linear, opacity 2s ease-in, transform 2s ease`;
+            
+            setTimeout(() => {
+                heart.style.bottom = '100%';
+                heart.style.opacity = finalOpacity;
+                heart.style.transform = `translateX(${Math.random() * 100 - 50}px) rotate(${Math.random() * 360}deg)`;
+                
+                // Reset after animation
+                setTimeout(() => {
+                    heart.style.opacity = '0';
+                    setTimeout(() => {
+                        heart.remove();
+                        createNewHeart();
+                    }, 2000);
+                }, duration * 1000 - 2000);
+            }, 100);
+        }
+        
+        function createNewHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            
+            const size = Math.random() * 20 + 10;
+            heart.style.width = `${size}px`;
+            heart.style.height = `${size}px`;
+            
+            // Set random horizontal position
+            const left = Math.random() * window.innerWidth;
+            heart.style.left = `${left}px`;
+            
+            // Append to body and animate
+            document.body.appendChild(heart);
+            animateHeart(heart);
+        }
+        
+        function createSparkles() {
+            const photoContainer = document.querySelector('.photo-container');
+            const rect = photoContainer.getBoundingClientRect();
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.classList.add('sparkle');
+                    
+                    const size = Math.random() * 8 + 5;
+                    sparkle.style.width = `${size}px`;
+                    sparkle.style.height = `${size}px`;
+                    
+                    // Position around the photo frame
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = Math.random() * 100 + 170;
+                    const x = Math.cos(angle) * distance + rect.width / 2;
+                    const y = Math.sin(angle) * distance + rect.height / 2;
+                    
+                    sparkle.style.left = `${x}px`;
+                    sparkle.style.top = `${y}px`;
+                    
+                    photoContainer.appendChild(sparkle);
+                    animateSparkle(sparkle);
+                }, i * 200);
+            }
+        }
+        
+        function animateSparkle(sparkle) {
+            // Set initial opacity
+            sparkle.style.opacity = '0';
+            
+            // Animate appearance and disappearance
+            sparkle.style.transition = 'opacity 0.5s ease-in, transform 2s ease';
+            
+            setTimeout(() => {
+                sparkle.style.opacity = '0.8';
+                sparkle.style.transform = 'scale(1.2)';
+                
+                // Fade out
+                setTimeout(() => {
+                    sparkle.style.opacity = '0';
+                    sparkle.style.transform = 'scale(0.8)';
+                    
+                    // Remove and create new
+                    setTimeout(() => {
+                        sparkle.remove();
+                        if (document.querySelectorAll('.sparkle').length < 30) {
+                            createNewSparkle();
+                        }
+                    }, 1000);
+                }, 1000);
+            }, 100);
+        }
+        
+        function createNewSparkle() {
+            const photoContainer = document.querySelector('.photo-container');
+            const rect = photoContainer.getBoundingClientRect();
+            
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            
+            const size = Math.random() * 8 + 5;
+            sparkle.style.width = `${size}px`;
+            sparkle.style.height = `${size}px`;
+            
+            // Position around the photo frame
+            const angle = Math.random() * Math.PI * 2;
+            const distance = Math.random() * 100 + 170;
+            const x = Math.cos(angle) * distance + rect.width / 2;
+            const y = Math.sin(angle) * distance + rect.height / 2;
+            
+            sparkle.style.left = `${x}px`;
+            sparkle.style.top = `${y}px`;
+            
+            photoContainer.appendChild(sparkle);
+            animateSparkle(sparkle);
+        }
+        
+        function setupModal() {
+            const surpriseBtn = document.querySelector('.surprise-btn');
+            const modal = document.querySelector('.modal');
+            const modalContent = document.querySelector('.modal-content');
+            const closeBtn = document.querySelector('.modal-close');
+            
+            // Open modal on button click
+            surpriseBtn.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                setTimeout(() => {
+                    modal.style.opacity = '1';
+                    modalContent.style.transform = 'scale(1)';
+                    createFireworks();
+                }, 10);
+            });
+            
+            // Close modal
+            closeBtn.addEventListener('click', () => {
+                modalContent.style.transform = 'scale(0.8)';
+                modal.style.opacity = '0';
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    stopFireworks();
+                }, 500);
+            });
+            
+            // Setup choice buttons
+            document.getElementById('video-btn').addEventListener('click', () => {
+                // Replace with your actual video URL
+                window.location.href = '#videoURL';
+            });
+            
+            document.getElementById('voice-btn').addEventListener('click', () => {
+                // Replace with your actual voice note URL
+                window.location.href = '#voiceNoteURL';
+            });
+            
+            document.getElementById('gif-btn').addEventListener('click', () => {
+                // Replace with your actual GIF URL
+                window.location.href = '#gifURL';
+            });
+        }
+        
+        function createFireworks() {
+            fireworkInterval = setInterval(() => {
+                const firework = document.createElement('div');
+                firework.classList.add('firework');
+                
+                // Set random position
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight * 0.7;
+                firework.style.left = `${x}px`;
+                firework.style.top = `${y}px`;
+                
+                document.body.appendChild(firework);
+                animateFirework(firework);
+            }, 300);
+        }
+        
+        function animateFirework(firework) {
+            const color = `hsl(${Math.random() * 360}, 100%, 65%)`;
+            
+            // Create explosion particles
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = '3px';
+                particle.style.height = '3px';
+                particle.style.borderRadius = '50%';
+                particle.style.backgroundColor = color;
+                particle.style.transformOrigin = 'center';
+                
+                firework.appendChild(particle);
+                
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 50 + 30;
+                const duration = Math.random() * 1 + 0.5;
+                
+                particle.style.transition = `transform ${duration}s ease-out, opacity ${duration}s ease-out`;
+                
+                setTimeout(() => {
+                    particle.style.transform = `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px)`;
+                    particle.style.opacity = '0';
+                }, 10);
+            }
+            
+            // Remove firework after animation
+            setTimeout(() => {
+                firework.remove();
+            }, 2000);
+        }
+        
+       
+        
+        let fireworkInterval;
+    </script>
+
+<div class="heart" style="width: 10.488px; height: 10.488px; left: 12.01px; bottom: 100%; opacity: 0.300304; transition: bottom 15.575s linear, opacity 2s ease-in, transform 2s; transform: translateX(20.8137px) rotate(141.474deg);"></div><div class="heart" style="width: 27.5675px; height: 27.5675px; left: 473.488px; bottom: 100%; opacity: 0.486547; transition: bottom 16.0892s linear, opacity 2s ease-in, transform 2s; transform: translateX(18.1975px) rotate(33.057deg);"></div><div class="heart" style="width: 18.789px; height: 18.789px; left: 637.643px; bottom: 100%; opacity: 0.270787; transition: bottom 17.2371s linear, opacity 2s ease-in, transform 2s; transform: translateX(38.788px) rotate(210.454deg);"></div><div class="heart" style="width: 17.5682px; height: 17.5682px; left: 722.719px; bottom: 100%; opacity: 0.586996; transition: bottom 16.8638s linear, opacity 2s ease-in, transform 2s; transform: translateX(10.0256px) rotate(41.955deg);"></div><div class="heart" style="width: 25.4302px; height: 25.4302px; left: 475.025px; bottom: 100%; opacity: 0.618306; transition: bottom 11.8182s linear, opacity 2s ease-in, transform 2s; transform: translateX(-39.4864px) rotate(161.056deg);"></div><div class="heart" style="width: 17.1351px; height: 17.1351px; left: 772.559px; bottom: 100%; opacity: 0.326418; transition: bottom 11.1831s linear, opacity 2s ease-in, transform 2s; transform: translateX(-4.88374px) rotate(162.937deg);"></div><div class="heart" style="width: 18.5157px; height: 18.5157px; left: 465.054px; bottom: 100%; opacity: 0.337807; transition: bottom 19.0133s linear, opacity 2s ease-in, transform 2s; transform: translateX(-0.0073221px) rotate(261.404deg);"></div><div class="heart" style="width: 23.1825px; height: 23.1825px; left: 427.044px; bottom: 100%; opacity: 0.674055; transition: bottom 17.7796s linear, opacity 2s ease-in, transform 2s; transform: translateX(18.8157px) rotate(23.6074deg);"></div><div class="heart" style="width: 28.8889px; height: 28.8889px; left: 525.051px; bottom: 100%; opacity: 0.400281; transition: bottom 12.8852s linear, opacity 2s ease-in, transform 2s; transform: translateX(-25.9661px) rotate(272.727deg);"></div><div class="heart" style="width: 19.0519px; height: 19.0519px; left: 114.34px; bottom: 100%; opacity: 0.675751; transition: bottom 10.6132s linear, opacity 2s ease-in, transform 2s; transform: translateX(-47.3989px) rotate(291.462deg);"></div><div class="heart" style="width: 23.2955px; height: 23.2955px; left: 610.522px; bottom: 100%; opacity: 0.634467; transition: bottom 18.0567s linear, opacity 2s ease-in, transform 2s; transform: translateX(-12.3439px) rotate(1.25104deg);"></div><div class="heart" style="width: 29.3788px; height: 29.3788px; left: 325.755px; bottom: 100%; opacity: 0.551118; transition: bottom 14.4532s linear, opacity 2s ease-in, transform 2s; transform: translateX(9.03648px) rotate(196.19deg);"></div><div class="heart" style="width: 27.5492px; height: 27.5492px; left: 630.223px; bottom: 100%; opacity: 0.615553; transition: bottom 11.6695s linear, opacity 2s ease-in, transform 2s; transform: translateX(35.8675px) rotate(15.1353deg);"></div><div class="heart" style="width: 25.1999px; height: 25.1999px; left: 483.568px; bottom: 100%; opacity: 0.237244; transition: bottom 15.8869s linear, opacity 2s ease-in, transform 2s; transform: translateX(-26.7843px) rotate(202.292deg);"></div><div class="heart" style="width: 19.3898px; height: 19.3898px; left: 457.261px; bottom: 100%; opacity: 0.551966; transition: bottom 12.4124s linear, opacity 2s ease-in, transform 2s; transform: translateX(-29.6851px) rotate(356.665deg);"></div><div class="heart" style="width: 21.0096px; height: 21.0096px; left: 474.982px; bottom: 100%; opacity: 0.312079; transition: bottom 16.3002s linear, opacity 2s ease-in, transform 2s; transform: translateX(-37.082px) rotate(332.185deg);"></div><div class="heart" style="width: 28.153px; height: 28.153px; left: 97.6742px; bottom: 100%; opacity: 0.318197; transition: bottom 10.8911s linear, opacity 2s ease-in, transform 2s; transform: translateX(-48.5014px) rotate(157.495deg);"></div><div class="heart" style="width: 25.2911px; height: 25.2911px; left: 179.913px; bottom: 100%; opacity: 0.661451; transition: bottom 10.2639s linear, opacity 2s ease-in, transform 2s; transform: translateX(-33.7927px) rotate(30.0809deg);"></div><div class="heart" style="width: 18.3138px; height: 18.3138px; left: 732.715px; bottom: 100%; opacity: 0.205637; transition: bottom 12.5023s linear, opacity 2s ease-in, transform 2s; transform: translateX(-29.9063px) rotate(356.018deg);"></div><div class="heart" style="width: 19.3572px; height: 19.3572px; left: 446.486px; bottom: 100%; opacity: 0.647473; transition: bottom 18.1631s linear, opacity 2s ease-in, transform 2s; transform: translateX(36.2781px) rotate(127.279deg);">
+
+</div>
+</body>
+</html>

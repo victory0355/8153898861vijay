@@ -1,0 +1,686 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Love, My Inspiration - For My Queen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #240b36 0%, #c31432 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .royal-frame {
+            position: absolute;
+            width: 92%;
+            height: 92%;
+            border: 4px solid rgba(255, 215, 0, 0.3);
+            top: 4%;
+            left: 4%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .royal-frame::before, .royal-frame::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 4px solid gold;
+            z-index: 11;
+        }
+
+        .royal-frame::before {
+            top: -15px;
+            left: -15px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .royal-frame::after {
+            bottom: -15px;
+            right: -15px;
+            border-top: none;
+            border-left: none;
+        }
+
+        .corner-top-right {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 30px;
+            height: 30px;
+            border: 4px solid gold;
+            border-left: none;
+            border-bottom: none;
+            z-index: 11;
+        }
+
+        .corner-bottom-left {
+            position: absolute;
+            bottom: -15px;
+            left: -15px;
+            width: 30px;
+            height: 30px;
+            border: 4px solid gold;
+            border-right: none;
+            border-top: none;
+            z-index: 11;
+        }
+
+        h1 {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            margin-bottom: 40px;
+            font-size: 52px;
+            font-weight: 300;
+            position: relative;
+            z-index: 10;
+            letter-spacing: 3px;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, gold, transparent);
+            margin: 15px auto 0;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+            font-size: 22px;
+            margin-top: -30px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            perspective: 1000px;
+            margin-bottom: 60px;
+        }
+
+        .carousel {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: translateZ(-300px) rotateY(0);
+            transition: transform 1s;
+        }
+
+        .carousel-item {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            left: calc(50% - 150px);
+            top: 0;
+            background: white;
+            border: 15px solid transparent;
+            border-image: linear-gradient(45deg, #f8d058, #c9a44c, #f8d058) 1;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5),
+                        0 0 20px rgba(255, 215, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.5s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            pointer-events: none;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(20%);
+            transition: all 0.5s ease;
+        }
+
+        .carousel-item:hover img {
+            filter: sepia(0%);
+            transform: scale(1.05);
+        }
+
+        .carousel-item:hover {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7),
+                        0 0 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .love-note {
+            position: absolute;
+            bottom: -100px;
+            background: rgba(36, 11, 54, 0.85);
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+            transform: translateY(20px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4),
+                        0 0 15px rgba(255, 215, 0, 0.2);
+            width: 270px;
+            font-style: italic;
+            color: #f8d058;
+            pointer-events: none;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            letter-spacing: 1px;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .love-note::before, .love-note::after {
+            content: '"';
+            font-family: Georgia, serif;
+            font-size: 28px;
+            color: gold;
+            line-height: 0;
+            vertical-align: -6px;
+        }
+
+        .carousel-item:hover .love-note {
+            opacity: 1;
+            transform: translateY(0);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            }
+            to {
+                box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+            background: radial-gradient(circle, #5e1b3c 0%, #240b36 100%);
+            padding: 30px;
+            text-align: center;
+            color: #f8d058;
+            font-size: 18px;
+            overflow: auto;
+            line-height: 1.8;
+            letter-spacing: 1px;
+            background-image: url("data:image/svg+xml,%3Csvg width='44' height='12' viewBox='0 0 44 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 12v-2L0 0v10l4 2h16zm18 0l4-2V0L22 10v2h16zM20 0v8L4 0h16zm18 0L22 8V0h16z' fill='%23f8d058' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .back p {
+            position: relative;
+            padding: 20px;
+        }
+
+        .back p::before, .back p::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            opacity: 0.5;
+        }
+
+        .back p::before {
+            top: 0;
+            left: 0;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .back p::after {
+            bottom: 0;
+            right: 0;
+            border-left: none;
+            border-top: none;
+        }
+
+        .flipped {
+            transform: rotateY(180deg);
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            opacity: 0;
+            animation: float 20s linear infinite;
+        }
+
+        .particle.heart {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23f8d058' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+        }
+
+        .particle.crown {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23f8d058' d='M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z'/%3E%3C/svg%3E");
+            width: 24px;
+            height: 24px;
+        }
+
+        .particle.sparkle {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23f8d058' d='M12 1L9 9l-8 3 8 3 3 8 3-8 8-3-8-3-3-8z'/%3E%3C/svg%3E");
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .music-control {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(36, 11, 54, 0.7);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 100;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+        }
+
+        .music-control:hover {
+            background: rgba(36, 11, 54, 0.9);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .music-control i {
+            color: #f8d058;
+            font-size: 24px;
+        }
+
+        .next-button {
+            margin-top: 30px;
+            padding: 18px 40px;
+            background: rgba(36, 11, 54, 0.7);
+            color: #f8d058;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s;
+            animation: pulse 2s infinite;
+            z-index: 10;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3),
+                        0 0 15px rgba(255, 215, 0, 0.2);
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .next-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .next-button:hover::before {
+            left: 100%;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 215, 0, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+            }
+        }
+
+        .next-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4),
+                        0 0 25px rgba(255, 215, 0, 0.3);
+            background: rgba(36, 11, 54, 0.9);
+            color: gold;
+        }
+
+        .next-button:active {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .arrow-navigation {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 10;
+        }
+
+        .arrow {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(36, 11, 54, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .arrow:hover {
+            background: rgba(36, 11, 54, 0.9);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .arrow i {
+            color: #f8d058;
+            font-size: 24px;
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="royal-frame">
+        <div class="corner-top-right"></div>
+        <div class="corner-bottom-left"></div>
+    </div>
+    
+    <div class="particles" id="particles"><div class="particle heart" style="left: 39.5494vw; top: 20.0994vh; animation-duration: 29.7548s; animation-delay: 1.76033s; transform: scale(0.45402);"></div><div class="particle sparkle" style="left: 45.6118vw; top: 62.2921vh; animation-duration: 24.3345s; animation-delay: 4.02684s; transform: scale(0.948812);"></div><div class="particle heart" style="left: 98.9167vw; top: 31.8513vh; animation-duration: 22.5285s; animation-delay: 3.32074s; transform: scale(0.44709);"></div><div class="particle heart" style="left: 15.3286vw; top: 67.8544vh; animation-duration: 26.2288s; animation-delay: 4.21371s; transform: scale(0.725973);"></div><div class="particle sparkle" style="left: 63.0122vw; top: 56.6227vh; animation-duration: 24.339s; animation-delay: 3.92806s; transform: scale(0.894745);"></div><div class="particle crown" style="left: 97.6179vw; top: 32.2297vh; animation-duration: 25.9431s; animation-delay: 2.67215s; transform: scale(0.912509);"></div><div class="particle crown" style="left: 95.4811vw; top: 9.40207vh; animation-duration: 31.2214s; animation-delay: 0.231253s; transform: scale(0.989702);"></div><div class="particle heart" style="left: 62.3425vw; top: 14.2029vh; animation-duration: 24.34s; animation-delay: 0.484043s; transform: scale(0.671682);"></div><div class="particle crown" style="left: 10.307vw; top: 72.4417vh; animation-duration: 28.0789s; animation-delay: 2.85496s; transform: scale(0.943553);"></div><div class="particle sparkle" style="left: 27.5463vw; top: 18.7096vh; animation-duration: 14.338s; animation-delay: 2.18057s; transform: scale(0.881362);"></div><div class="particle heart" style="left: 51.0923vw; top: 36.7739vh; animation-duration: 16.8263s; animation-delay: 0.773827s; transform: scale(0.51858);"></div><div class="particle heart" style="left: 66.7129vw; top: 65.9646vh; animation-duration: 13.4392s; animation-delay: 2.71003s; transform: scale(0.938904);"></div><div class="particle crown" style="left: 24.8114vw; top: 94.072vh; animation-duration: 15.3627s; animation-delay: 0.423928s; transform: scale(0.645206);"></div><div class="particle sparkle" style="left: 65.124vw; top: 11.5713vh; animation-duration: 18.1715s; animation-delay: 0.801904s; transform: scale(0.529013);"></div><div class="particle sparkle" style="left: 46.1611vw; top: 62.3472vh; animation-duration: 34.149s; animation-delay: 4.68338s; transform: scale(0.568649);"></div><div class="particle crown" style="left: 30.6223vw; top: 17.4251vh; animation-duration: 27.7982s; animation-delay: 1.79345s; transform: scale(0.842296);"></div><div class="particle crown" style="left: 83.5847vw; top: 18.2482vh; animation-duration: 19.8085s; animation-delay: 4.93247s; transform: scale(0.626611);"></div><div class="particle heart" style="left: 51.0653vw; top: 87.9677vh; animation-duration: 33.543s; animation-delay: 1.24418s; transform: scale(0.535581);"></div><div class="particle sparkle" style="left: 61.0207vw; top: 59.9355vh; animation-duration: 11.6568s; animation-delay: 1.9036s; transform: scale(0.635853);"></div><div class="particle crown" style="left: 18.35vw; top: 62.1099vh; animation-duration: 33.4537s; animation-delay: 4.08126s; transform: scale(0.613157);"></div><div class="particle heart" style="left: 39.5361vw; top: 98.6686vh; animation-duration: 20.8548s; animation-delay: 4.02665s; transform: scale(0.916178);"></div><div class="particle crown" style="left: 67.0915vw; top: 20.1258vh; animation-duration: 26.3445s; animation-delay: 0.64349s; transform: scale(0.530011);"></div><div class="particle crown" style="left: 68.5792vw; top: 72.8388vh; animation-duration: 24.9447s; animation-delay: 2.90176s; transform: scale(0.516686);"></div><div class="particle heart" style="left: 99.5027vw; top: 23.4785vh; animation-duration: 32.0563s; animation-delay: 3.86238s; transform: scale(0.695884);"></div><div class="particle crown" style="left: 40.7101vw; top: 26.5415vh; animation-duration: 36.6937s; animation-delay: 3.09658s; transform: scale(0.724363);"></div><div class="particle sparkle" style="left: 51.4338vw; top: 61.9708vh; animation-duration: 16.1856s; animation-delay: 2.34542s; transform: scale(0.520776);"></div><div class="particle heart" style="left: 86.5212vw; top: 92.8542vh; animation-duration: 31.5773s; animation-delay: 1.25158s; transform: scale(0.706085);"></div><div class="particle heart" style="left: 88.3566vw; top: 45.6885vh; animation-duration: 39.0754s; animation-delay: 4.29531s; transform: scale(0.632246);"></div><div class="particle heart" style="left: 41.7921vw; top: 33.0836vh; animation-duration: 14.3789s; animation-delay: 0.509625s; transform: scale(0.692019);"></div><div class="particle heart" style="left: 16.6353vw; top: 17.0357vh; animation-duration: 11.5616s; animation-delay: 4.82472s; transform: scale(0.65401);"></div><div class="particle heart" style="left: 84.6022vw; top: 99.0812vh; animation-duration: 35.738s; animation-delay: 3.82259s; transform: scale(0.85359);"></div><div class="particle heart" style="left: 33.5727vw; top: 20.8973vh; animation-duration: 18.7375s; animation-delay: 1.47976s; transform: scale(0.673731);"></div><div class="particle crown" style="left: 10.4217vw; top: 45.2494vh; animation-duration: 38.4531s; animation-delay: 3.62781s; transform: scale(0.83967);"></div><div class="particle crown" style="left: 46.3427vw; top: 28.8001vh; animation-duration: 21.5695s; animation-delay: 1.1599s; transform: scale(0.865752);"></div><div class="particle heart" style="left: 49.386vw; top: 88.1943vh; animation-duration: 16.7144s; animation-delay: 1.21071s; transform: scale(0.551305);"></div><div class="particle heart" style="left: 72.3554vw; top: 17.8614vh; animation-duration: 23.3388s; animation-delay: 0.865036s; transform: scale(0.723907);"></div><div class="particle crown" style="left: 36.1782vw; top: 83.1687vh; animation-duration: 21.3795s; animation-delay: 2.75732s; transform: scale(0.544264);"></div><div class="particle heart" style="left: 40.77vw; top: 15.3683vh; animation-duration: 11.4323s; animation-delay: 3.25903s; transform: scale(0.923946);"></div><div class="particle heart" style="left: 10.0872vw; top: 87.8662vh; animation-duration: 16.2287s; animation-delay: 4.09004s; transform: scale(0.956876);"></div><div class="particle heart" style="left: 45.7999vw; top: 94.9389vh; animation-duration: 20.9565s; animation-delay: 1.37275s; transform: scale(0.763604);"></div></div>
+    
+    <h1>My Love, My Inspiration</h1>
+    <div class="subtitle">For My Queen on BirthDay</div>
+    
+    <div class="carousel-container">
+        <div class="carousel" id="carousel" style="transform: translateZ(-400px) rotateY(117.3deg);">
+            <!-- Images will be added dynamically -->
+        <div class="carousel-item" style="transform: rotateY(0deg) translateZ(400px);"><div class="front"><img src="pic2.jpg" alt="Love Photo"></div><div class="back"><p>In the garden of my life, your presence is the most exquisite flower. Every moment with you fills my soul with an indescribable joy that makes even the darkest days shine with brilliant light.</p></div><div class="love-note">Your smile illuminates my entire universe</div></div><div class="carousel-item" style="transform: rotateY(51.4286deg) translateZ(400px);"><div class="front"><img src="pic8.jpg" alt="Love Photo"></div><div class="back"><p>Some souls are destined to find each other across countless lifetimes. I believe ours have danced together through eternity, always finding our way back to one another. You are my beginning and my forever.</p></div><div class="love-note">My heart has belonged to you since time began</div></div><div class="carousel-item" style="transform: rotateY(102.857deg) translateZ(400px);"><div class="front"><img src="pic3.jpg" alt="Love Photo"></div><div class="back"><p>If I could gather all the stars from the heavens to craft a crown for you, it would still pale in comparison to your radiance. You rule my heart with gentle grace, and I am your devoted admirer for all time.</p></div><div class="love-note">You are the queen of my heart and soul</div></div><div class="carousel-item" style="transform: rotateY(154.286deg) translateZ(400px);"><div class="front"><img src="pic4.jpg" alt="Love Photo"></div><div class="back"><p>The poetry of your presence transforms ordinary moments into extraordinary memories. I wake each morning grateful for another day to witness the wonder of your being. You are the muse that inspires the symphony of my life.</p></div><div class="love-note">Every day with you is a treasured gift</div></div><div class="carousel-item" style="transform: rotateY(205.714deg) translateZ(400px);"><div class="front"><img src="pic5.jpg" alt="Love Photo"></div><div class="back"><p>Before you, my heart knew only silence. Now it beats to the rhythm of your name, creating a harmony so profound it resonates through every fiber of my existence. Your love is the music that gives meaning to my days.</p></div><div class="love-note">Your love is the melody my heart sings</div></div><div class="carousel-item" style="transform: rotateY(257.143deg) translateZ(400px);"><div class="front"><img src="pic6.jpg" alt="Love Photo"></div><div class="back"><p>In the quiet moments of reflection, I am overcome with wonder at how perfectly you complete the unfinished verses of my life. You are more beautiful than my imagination could have crafted, more precious than any treasure I could seek.</p></div><div class="love-note">You are the dream I never dared to wish for</div></div><div class="carousel-item" style="transform: rotateY(308.571deg) translateZ(400px);"><div class="front"><img src="pic7.jpg" alt="Love Photo"></div><div class="back"><p>Home is not a place but a feeling – the feeling of complete belonging that only your embrace provides. In your eyes, I have found sanctuary; in your heart, I have found the peace my soul has always sought.</p></div><div class="love-note">With you, I have found my home</div></div></div>
+        
+        <div class="arrow-navigation">
+            <div class="arrow" id="prevArrow">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="arrow" id="nextArrow">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+    </div>
+    
+    <button class="next-button" id="nextButton">Continue to the Next Surprise</button>
+    
+    <div class="music-control" id="musicControl">
+        <i class="fas fa-play" id="musicIcon"></i>
+    </div>
+    
+   
+
+
+    <audio id="bgMusic" loop="">
+        <source src="vijay2.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create particles
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 40;
+            const particleTypes = ['heart', 'crown', 'sparkle'];
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Randomly select particle type
+                const typeIndex = Math.floor(Math.random() * particleTypes.length);
+                particle.classList.add(particleTypes[typeIndex]);
+                
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.animationDuration = (Math.random() * 30 + 10) + 's';
+                particle.style.animationDelay = (Math.random() * 5) + 's';
+                particle.style.transform = `scale(${Math.random() * 0.6 + 0.4})`;
+                particlesContainer.appendChild(particle);
+            }
+
+            // Sample image array with messages
+            const images = [
+                {
+                    src: 'pic2.jpg',
+                    note: "Your smile illuminates my entire universe",
+                    message: "In the garden of my life, your presence is the most exquisite flower. Every moment with you fills my soul with an indescribable joy that makes even the darkest days shine with brilliant light."
+                },
+                {
+                    src: 'pic8.jpg',
+                    note: "My heart has belonged to you since time began",
+                    message: "Some souls are destined to find each other across countless lifetimes. I believe ours have danced together through eternity, always finding our way back to one another. You are my beginning and my forever."
+                },
+                {
+                    src: 'pic3.jpg',
+                    note: "You are the queen of my heart and soul",
+                    message: "If I could gather all the stars from the heavens to craft a crown for you, it would still pale in comparison to your radiance. You rule my heart with gentle grace, and I am your devoted admirer for all time."
+                },
+                {
+                    src: 'pic4.jpg',
+                    note: "Every day with you is a treasured gift",
+                    message: "The poetry of your presence transforms ordinary moments into extraordinary memories. I wake each morning grateful for another day to witness the wonder of your being. You are the muse that inspires the symphony of my life."
+                },
+                {
+                    src: 'pic5.jpg',
+                    note: "Your love is the melody my heart sings",
+                    message: "Before you, my heart knew only silence. Now it beats to the rhythm of your name, creating a harmony so profound it resonates through every fiber of my existence. Your love is the music that gives meaning to my days."
+                },
+                {
+                    src: 'pic6.jpg',
+                    note: "You are the dream I never dared to wish for",
+                    message: "In the quiet moments of reflection, I am overcome with wonder at how perfectly you complete the unfinished verses of my life. You are more beautiful than my imagination could have crafted, more precious than any treasure I could seek."
+                },
+                {
+                    src: 'pic7.jpg',
+                    note: "With you, I have found my home",
+                    message: "Home is not a place but a feeling – the feeling of complete belonging that only your embrace provides. In your eyes, I have found sanctuary; in your heart, I have found the peace my soul has always sought."
+                }
+            ];
+
+            // Create carousel items
+            const carousel = document.getElementById('carousel');
+            const itemCount = images.length;
+            const angleIncrement = 360 / itemCount;
+            
+            images.forEach((image, index) => {
+                const item = document.createElement('div');
+                item.classList.add('carousel-item');
+                item.style.transform = `rotateY(${angleIncrement * index}deg) translateZ(400px)`;
+                
+                const front = document.createElement('div');
+                front.classList.add('front');
+                
+                const img = document.createElement('img');
+                img.src = image.src;
+                img.alt = "Love Photo";
+                front.appendChild(img);
+                
+                const back = document.createElement('div');
+                back.classList.add('back');
+                back.innerHTML = `<p>${image.message}</p>`;
+                
+                const loveNote = document.createElement('div');
+                loveNote.classList.add('love-note');
+                loveNote.textContent = image.note;
+                
+                item.appendChild(front);
+                item.appendChild(back);
+                item.appendChild(loveNote);
+                carousel.appendChild(item);
+                
+                // Flip animation on click
+                item.addEventListener('click', function() {
+                    this.classList.toggle('flipped');
+                });
+            });
+
+            // Rotate carousel
+            let currentAngle = 0;
+            let autoRotate = true;
+            const rotation = setInterval(() => {
+                if (autoRotate) {
+                    currentAngle += 0.1;
+                    carousel.style.transform = `translateZ(-400px) rotateY(${currentAngle}deg)`;
+                }
+            }, 30);
+
+            // Stop rotation on hover
+            carousel.addEventListener('mouseenter', function() {
+                autoRotate = false;
+            });
+            
+            carousel.addEventListener('mouseleave', function() {
+                autoRotate = true;
+            });
+
+            // Music controls
+            const musicControl = document.getElementById('musicControl');
+            const musicIcon = document.getElementById('musicIcon');
+            const bgMusic = document.getElementById('bgMusic');
+            let musicPlaying = false;
+            
+            musicControl.addEventListener('click', function() {
+                if (bgMusic.paused) {
+                    bgMusic.play();
+                    musicIcon.classList.remove('fa-play');
+                    musicIcon.classList.add('fa-pause');
+                    musicPlaying = true;
+                } else {
+                    bgMusic.pause();
+                    musicIcon.classList.remove('fa-pause');
+                    musicIcon.classList.add('fa-play');
+                    musicPlaying = false;
+                }
+            });
+
+            // Ensure audio plays only with user interaction
+            document.body.addEventListener('click', function() {
+                if (!musicPlaying) {
+                    bgMusic.play();
+                    musicIcon.classList.remove('fa-play');
+                    musicIcon.classList.add('fa-pause');
+                    musicPlaying = true;
+                }
+            }, { once: true });
+
+            // Next button
+            document.getElementById('nextButton').addEventListener('click', function() {
+                // Add transition effect before navigating
+                document.body.style.opacity = '0';
+                document.body.style.transition = 'opacity 1s ease';
+                
+                setTimeout(function() {
+                    window.location.href = "BHG.html";
+                }, 1000);
+            });
+
+            // Arrow navigation
+            const angleStep = 360 / itemCount;
+            
+            document.getElementById('nextArrow').addEventListener('click', function() {
+                currentAngle += angleStep;
+                carousel.style.transform = `translateZ(-400px) rotateY(${currentAngle}deg)`;
+            });
+            
+            document.getElementById('prevArrow').addEventListener('click', function() {
+                currentAngle -= angleStep;
+                carousel.style.transform = `translateZ(-400px) rotateY(${currentAngle}deg)`;
+            });
+
+            // Manual carousel control with arrow keys
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') {
+                    currentAngle -= angleStep;
+                    carousel.style.transform = `translateZ(-400px) rotateY(${currentAngle}deg)`;
+                } else if (e.key === 'ArrowRight') {
+                    currentAngle += angleStep;
+                    carousel.style.transform = `translateZ(-400px) rotateY(${currentAngle}deg)`;
+                }
+            });
+        });
+    </script>
+
+</body></html>

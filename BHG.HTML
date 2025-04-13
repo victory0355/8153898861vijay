@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Priyuuu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(to right, #320031, #4c004b);
+      font-family: 'Brush Script MT', cursive;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .crown {
+      font-size: 50px;
+      margin-top: 60px;
+      color: gold;
+      filter: drop-shadow(0 0 10px gold);
+    }
+
+    .message {
+      margin: 20px auto;
+      font-size: 28px;
+      line-height: 2;
+      max-width: 800px;
+      padding: 10px;
+    }
+
+    .video-container {
+      margin: 40px auto;
+      max-width: 700px;
+      padding: 10px;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 20px;
+      border: 3px solid #ffcc00;
+      box-shadow: 0 0 20px #ffcc00;
+    }
+
+    .button-container {
+      margin-top: 40px;
+      margin-bottom: 100px;
+    }
+
+    .button {
+      padding: 12px 30px;
+      font-size: 18px;
+      border: 2px solid gold;
+      border-radius: 30px;
+      background: transparent;
+      color: gold;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      margin: 10px;
+    }
+
+    .button:hover {
+      background: gold;
+      color: #4c004b;
+    }
+
+    /* Fixed Bottom Continue Button */
+    .continue-button {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .continue-button button {
+      padding: 12px 30px;
+      font-size: 18px;
+      border: 2px solid gold;
+      border-radius: 30px;
+      background: gold;
+      color: #4c004b;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+
+    .continue-button button:hover {
+      background: #fff176;
+    }
+
+    /* Floating Hearts */
+    .heart {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: #ff2c8a;
+      top: -10px;
+      animation: float 10s linear infinite;
+      border-radius: 50%;
+      transform: rotate(45deg);
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: #ff2c8a;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -7.5px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 7.5px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="crown">👑</div>
+
+  <div class="message">
+    Happy Birthday To You, The Queen Of My Heart...<br>
+    You Are My Strength, My Happiness, And My Forever.<br>
+    Love You Priyuuu Darling ❤️
+  </div>
+
+  <div class="video-container">
+    <video controls>
+      <source src="BIRTH.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="button-container">
+    <button class="button" onclick="goToLetterPage()">Step into Your Kingdom</button>
+  </div>
+
+  <!-- Fixed Bottom Continue Button -->
+ 
+  <!-- Heart Generator Script -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDuration = `${5 + Math.random() * 5}s`;
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+    setInterval(createHeart, 200);
+
+    function goToLetterPage() {
+      window.location.href = 'letter.html';
+    }
+
+    function goToNextPage() {
+      window.location.href = 'nextpage.html'; // Change this to your desired page
+    }
+  </script>
+
+</body>
+</html>
